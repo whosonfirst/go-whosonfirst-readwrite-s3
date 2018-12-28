@@ -19,7 +19,8 @@ build:	fmt bin
 
 deps:
 	@GOPATH=$(GOPATH) go get -u "github.com/whosonfirst/go-whosonfirst-readwrite/..."
-	@GOPATH=$(GOPATH) go get -u "github.com/aws/aws-sdk-go"
+	@GOPATH=$(GOPATH) go get -u "github.com/whosonfirst/go-whosonfirst-aws"
+	mv src/github.com/whosonfirst/go-whosonfirst-aws/vendor/github.com/aws src/github.com/
 
 vendor-deps: rmdeps deps
 	if test ! -d vendor; then mkdir vendor; fi
